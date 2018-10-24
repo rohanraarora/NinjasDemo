@@ -7,6 +7,14 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesAppComponent } from './courses-app/courses-app.component';
+import {RouterModule, Routes} from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: CoursesAppComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +26,8 @@ import { CoursesAppComponent } from './courses-app/courses-app.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
