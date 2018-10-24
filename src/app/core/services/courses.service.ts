@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {CoursesApiResponse} from '../models/courses-api.response';
-import {CourseDetailApiResponse} from '../models/course-detail-api.response';
+import {CoursesApiResponse} from '../../../models/courses-api.response';
+import {CourseDetailApiResponse} from '../../../models/course-detail-api.response';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
