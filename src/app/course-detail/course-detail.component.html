@@ -13,6 +13,12 @@
       <span class="label">Title:</span>
       <span class="value">{{course.title}}</span>
     </div>
+    <div *ngIf="course.available_offline">
+      <a [routerLink]="['/courses',course.offline_title]">View Offline Data</a>
+    </div>
+    <div *ngIf="course.available_online">
+      <a [routerLink]="['/courses',course.online_title]">View Online Data</a>
+    </div>
   </div>
   <ng-template #noCourse>
     <div id="no-course-content">No Course Selected</div>

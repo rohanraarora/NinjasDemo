@@ -1,0 +1,13 @@
+<div *ngIf="loading;else notLoading" xmlns="http://www.w3.org/1999/html">
+  Loading...
+</div>
+<ng-template #notLoading>
+  <div *ngIf="course;else noCourse">
+    <div>Name: {{course.name}}</div>
+    <div>Title: {{course.title}}</div>
+    <div>{{course.overview}}</div>
+  </div>
+  <ng-template #noCourse>
+    No Course Found
+  </ng-template>
+</ng-template>

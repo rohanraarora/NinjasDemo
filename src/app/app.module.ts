@@ -8,11 +8,16 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesAppComponent } from './courses-app/courses-app.component';
 import {RouterModule, Routes} from '@angular/router';
+import { CoursePageComponent } from './course-page/course-page.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: CoursesAppComponent
+  },
+  {
+    path: 'courses/:course_slug',
+    component: CoursePageComponent
   }
 ];
 
@@ -22,7 +27,8 @@ export const routes: Routes = [
     CoursesComponent,
     CourseDetailComponent,
     HeaderComponent,
-    CoursesAppComponent
+    CoursesAppComponent,
+    CoursePageComponent
   ],
   imports: [
     BrowserModule,
