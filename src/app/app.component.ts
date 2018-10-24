@@ -34,5 +34,8 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
+  selectCourse(course: Course){
+    this.selectedCourse = course;
+  }
 
 }

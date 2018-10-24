@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from '../../models/course';
 
 @Component({
@@ -9,6 +9,7 @@ import {Course} from '../../models/course';
 export class CoursesComponent implements OnInit {
 
   @Input() courses: Course[];
+  @Output() courseSelect = new EventEmitter();
 
   constructor() { }
 
@@ -16,7 +17,7 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(course: Course){
-    //this.selectedCourse = course;
+    this.courseSelect.emit(course);
   }
 
 }

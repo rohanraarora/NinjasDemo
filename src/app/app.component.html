@@ -1,7 +1,7 @@
 <div *ngIf="loading">
   Loading....
 </div>
-<app-courses [courses]="courses"></app-courses>
+<app-courses [courses]="courses" (courseSelect)="selectCourse($event)"></app-courses>
 <div>
   Selected Course Name: {{selectedCourse ? selectedCourse.name : "No Course Selected"}}
 </div>
