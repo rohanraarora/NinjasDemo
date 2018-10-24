@@ -3,15 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { CoursesComponent } from './courses/courses.component';
-import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { HeaderComponent } from './header/header.component';
-import { CoursesAppComponent } from './courses-app/courses-app.component';
+import { CoursesAppComponent } from './home/components/courses-app/courses-app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { CoursePageComponent } from './course/components/course-page/course-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NinjasAppComponent } from './ninjas-app/ninjas-app.component';
 import {CourseModule} from './course/course.module';
+import {HomeModule} from './home/home.module';
 
 export const routes: Routes = [
   {
@@ -44,10 +43,7 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
-    CourseDetailComponent,
     HeaderComponent,
-    CoursesAppComponent,
     NotFoundComponent,
     NinjasAppComponent
   ],
@@ -55,7 +51,8 @@ export const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    CourseModule
+    CourseModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
