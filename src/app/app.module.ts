@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { HeaderComponent } from './header/header.component';
+import { CoursesAppComponent } from './courses-app/courses-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    HeaderComponent,
+    CoursesAppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,29 @@
 .clickable{
   cursor: pointer;
 }
+
+
+#courses-container{
+
+  height: 100%;
+  overflow: scroll;
+  width: 100%;
+  font-weight: 500;
+
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  font-size: 24px;
+  padding: 8px 4px;
+  border-bottom: #9c9c9c 2px solid;
+}
+
+.course-item:hover {
+  background-color: orange;
+  color: white;
+}
+

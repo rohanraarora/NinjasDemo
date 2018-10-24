@@ -1,5 +1,10 @@
-<div *ngIf="loading">
-  Loading....
+<div id="app-container">
+  <div id="header-container">
+    <app-header></app-header>
+  </div>
+  <div id="content-container">
+    <app-courses-app></app-courses-app>
+  </div>
 </div>
-<app-courses [courses]="courses" (courseSelect)="selectCourse($event)"></app-courses>
-<app-course-detail [course]="selectedCourse"></app-course-detail>
+
+

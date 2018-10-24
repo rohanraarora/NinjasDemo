@@ -1,0 +1,22 @@
+#header {
+  display: flex;
+  height: 64px;
+  padding: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
+}
+
+#logo {
+  height: 100%;
+}
+
+img {
+  height: 100%;
+}
+
+#header-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

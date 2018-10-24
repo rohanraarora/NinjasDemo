@@ -1,5 +1,6 @@
-<div *ngIf="courses">
-  <p class="clickable" *ngFor="let course of courses" (click)="selectCourse(course)">
+<div *ngIf="courses" id="courses-container">
+  Select a course
+  <div class="clickable course-item" *ngFor="let course of courses" (click)="selectCourse(course)">
     {{course.title}}
-  </p>
+  </div>
 </div>
