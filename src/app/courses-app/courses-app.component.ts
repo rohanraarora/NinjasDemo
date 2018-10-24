@@ -4,6 +4,7 @@ import {catchError} from 'rxjs/operators';
 import {Course} from '../../models/course';
 import {CoursesApiResponse} from '../../models/courses-api.response';
 import {of} from 'rxjs';
+import {CoursesService} from '../courses.service';
 
 @Component({
   selector: 'app-courses-app',
@@ -16,7 +17,7 @@ export class CoursesAppComponent implements OnInit, OnDestroy {
   loading: boolean;
   selectedCourse: Course;
 
-  constructor(private http: HttpClient) {
+  constructor(private api: CoursesService) {
   }
 
   ngOnDestroy(): void {
@@ -24,11 +25,7 @@ export class CoursesAppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loading = true;
-    this.http.get<CoursesApiResponse>('https://codingninjas.in/api/v3/courses').pipe(
-      catchError(error => {
-        console.log('Error', error);
-        return of({data: {courses: []}});
-      })).subscribe(response => {
+    this.api.fetchCourses().subscribe(response => {
       this.loading = false;
       this.courses = response.data.courses;
     });

@@ -5,6 +5,7 @@ import {CourseDetailApiResponse} from '../../models/course-detail-api.response';
 import {ActivatedRoute} from '@angular/router';
 import {catchError} from 'rxjs/operators';
 import {of} from 'rxjs';
+import {CoursesService} from '../courses.service';
 
 @Component({
   selector: 'app-course-page',
@@ -16,22 +17,13 @@ export class CoursePageComponent implements OnInit {
   course: Course;
   loading: boolean = false;
 
-  constructor(private http: HttpClient,private route:ActivatedRoute) { }
+  constructor(private api: CoursesService,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramsMap => {
       this.loading = true;
       const title = paramsMap.get("course_slug");
-      let params = new HttpParams();
-      params = params.set("title",title);
-      this.http.get<CourseDetailApiResponse>("https://codingninjas.in/api/v3/course",{
-        params: params
-      }).pipe(
-        catchError(err => {
-          console.log("Error",err);
-          return of(null)
-        })
-      ).subscribe(response => {
+      this.api.fetchCourse(title).subscribe(response => {
         this.loading = false;
         if (response){
           this.course = response.data.course;
