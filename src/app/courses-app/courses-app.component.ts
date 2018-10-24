@@ -1,9 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
 import {Course} from '../../models/course';
-import {CoursesApiResponse} from '../../models/courses-api.response';
-import {of} from 'rxjs';
 import {CoursesService} from '../courses.service';
 
 @Component({
@@ -31,7 +27,7 @@ export class CoursesAppComponent implements OnInit, OnDestroy {
     });
   }
 
-  selectCourse(course: Course){
+  selectCourse(course: Course) {
     this.selectedCourse = course;
   }
 

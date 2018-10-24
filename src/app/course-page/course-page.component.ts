@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from '../../models/course';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {CourseDetailApiResponse} from '../../models/course-detail-api.response';
 import {ActivatedRoute} from '@angular/router';
-import {catchError} from 'rxjs/operators';
-import {of} from 'rxjs';
 import {CoursesService} from '../courses.service';
 
 @Component({
@@ -17,18 +13,19 @@ export class CoursePageComponent implements OnInit {
   course: Course;
   loading: boolean = false;
 
-  constructor(private api: CoursesService,private route:ActivatedRoute) { }
+  constructor(private api: CoursesService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramsMap => {
       this.loading = true;
-      const title = paramsMap.get("course_slug");
+      const title = paramsMap.get('course_slug');
       this.api.fetchCourse(title).subscribe(response => {
         this.loading = false;
-        if (response){
+        if (response) {
           this.course = response.data.course;
         }
-      })
+      });
     });
   }
 
