@@ -8,9 +8,10 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { CoursesAppComponent } from './courses-app/courses-app.component';
 import {RouterModule, Routes} from '@angular/router';
-import { CoursePageComponent } from './course-page/course-page.component';
+import { CoursePageComponent } from './course/components/course-page/course-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NinjasAppComponent } from './ninjas-app/ninjas-app.component';
+import {CourseModule} from './course/course.module';
 
 export const routes: Routes = [
   {
@@ -47,14 +48,14 @@ export const routes: Routes = [
     CourseDetailComponent,
     HeaderComponent,
     CoursesAppComponent,
-    CoursePageComponent,
     NotFoundComponent,
     NinjasAppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    CourseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
