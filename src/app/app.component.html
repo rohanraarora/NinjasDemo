@@ -1,11 +1,7 @@
 <div *ngIf="loading">
   Loading....
 </div>
-<div *ngIf="courses">
-  <p class="clickable" *ngFor="let course of courses" (click)="selectCourse(course)">
-    {{course.title}}
-  </p>
-</div>
+<app-courses [courses]="courses"></app-courses>
 <div>
   Selected Course Name: {{selectedCourse ? selectedCourse.name : "No Course Selected"}}
 </div>
