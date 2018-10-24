@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoursesAppComponent } from './courses-app/courses-app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { CoursePageComponent } from './course-page/course-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,14 @@ export const routes: Routes = [
   {
     path: 'courses/:course_slug',
     component: CoursePageComponent
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
@@ -28,7 +37,8 @@ export const routes: Routes = [
     CourseDetailComponent,
     HeaderComponent,
     CoursesAppComponent,
-    CoursePageComponent
+    CoursePageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

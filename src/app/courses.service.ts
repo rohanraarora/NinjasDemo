@@ -4,13 +4,14 @@ import {CoursesApiResponse} from '../models/courses-api.response';
 import {CourseDetailApiResponse} from '../models/course-detail-api.response';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
   }
 
   fetchCourses(): Observable<CoursesApiResponse> {
@@ -28,7 +29,7 @@ export class CoursesService {
       params: params
     }).pipe(
       catchError(err => {
-        console.log("Error",err);
+        this.router.navigate(['/404']);
         return of(null)
       })
     )
