@@ -1,8 +1,11 @@
-<div id="courses-app-container">
-  <div class="content card">
-    <app-courses [courses]="courses" (courseSelect)="selectCourse($event)"></app-courses>
+<app-loader *ngIf="loading;else notLoading"></app-loader>
+<ng-template #notLoading>
+  <div id="courses-app-container">
+    <div class="content card">
+      <app-courses [courses]="courses" (courseSelect)="selectCourse($event)"></app-courses>
+    </div>
+    <div class="content card">
+      <app-course-detail [course]="selectedCourse"></app-course-detail>
+    </div>
   </div>
-  <div class="content card">
-    <app-course-detail [course]="selectedCourse"></app-course-detail>
-  </div>
-</div>
+</ng-template>

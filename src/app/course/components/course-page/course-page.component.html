@@ -1,6 +1,4 @@
-<div *ngIf="loading;else notLoading" xmlns="http://www.w3.org/1999/html">
-  Loading...
-</div>
+<app-loader *ngIf="loading;else notLoading"></app-loader>
 <ng-template #notLoading>
   <div *ngIf="course;else noCourse">
     <div>Name: {{course.name}}</div>

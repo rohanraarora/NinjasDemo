@@ -4,20 +4,21 @@ import {CoursesAppComponent} from './components/courses-app/courses-app.componen
 import {CoursesComponent} from './components/courses/courses.component';
 import {CourseDetailComponent} from './components/course-detail/course-detail.component';
 import {RouterModule, Routes} from '@angular/router';
+import {SharedModule} from '../shared/shared.module';
 
 export const routes: Routes = [
   {
     path: '',
     component: CoursesAppComponent
   }
-]
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
-  declarations: [CoursesAppComponent,CoursesComponent,CourseDetailComponent],
-  exports: [CoursesAppComponent,CoursesComponent,CourseDetailComponent]
+  declarations: [CoursesAppComponent,CoursesComponent,CourseDetailComponent]
 })
 export class HomeModule { }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CoursePageComponent} from './components/course-page/course-page.component';
 import {RouterModule, Routes} from '@angular/router';
+import {SharedModule} from '../shared/shared.module';
 
 export const routes: Routes = [
   {
@@ -13,7 +14,8 @@ export const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   declarations: [CoursePageComponent],
   exports: [CoursePageComponent]
