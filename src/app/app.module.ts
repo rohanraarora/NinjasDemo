@@ -10,16 +10,26 @@ import { CoursesAppComponent } from './courses-app/courses-app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NinjasAppComponent } from './ninjas-app/ninjas-app.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CoursesAppComponent
+    component: NinjasAppComponent,
+    children: [
+
+      {
+        path: '',
+        component: CoursesAppComponent
+      },
+      {
+        path: 'courses/:course_slug',
+        component: CoursePageComponent
+      }
+
+    ]
   },
-  {
-    path: 'courses/:course_slug',
-    component: CoursePageComponent
-  },
+
   {
     path: '404',
     component: NotFoundComponent
@@ -38,7 +48,8 @@ export const routes: Routes = [
     HeaderComponent,
     CoursesAppComponent,
     CoursePageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NinjasAppComponent
   ],
   imports: [
     BrowserModule,
