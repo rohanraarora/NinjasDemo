@@ -1,0 +1,15 @@
+<div *ngIf="course;else noCourse">
+  Selected Course
+  <div>
+    Id: {{course.id}}
+  </div>
+  <div>
+    Name: {{course.name}}
+  </div>
+  <div>
+    Title: {{course.title}}
+  </div>
+</div>
+<ng-template #noCourse>
+  No Course Selected
+</ng-template>
