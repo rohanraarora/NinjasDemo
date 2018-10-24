@@ -2,57 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
-import { CoursesAppComponent } from './home/components/courses-app/courses-app.component';
-import {RouterModule, Routes} from '@angular/router';
-import { CoursePageComponent } from './course/components/course-page/course-page.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { NinjasAppComponent } from './ninjas-app/ninjas-app.component';
-import {CourseModule} from './course/course.module';
-import {HomeModule} from './home/home.module';
+import {CoreModule} from './core/core.module';
+import {RouterModule} from '@angular/router';
 
-export const routes: Routes = [
-  {
-    path: '',
-    component: NinjasAppComponent,
-    children: [
 
-      {
-        path: '',
-        component: CoursesAppComponent
-      },
-      {
-        path: 'courses/:course_slug',
-        component: CoursePageComponent
-      }
-
-    ]
-  },
-
-  {
-    path: '404',
-    component: NotFoundComponent
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
-];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    NotFoundComponent,
-    NinjasAppComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    CourseModule,
-    HomeModule
+    RouterModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
