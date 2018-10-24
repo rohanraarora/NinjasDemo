@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   courses: Course[];
   loading: boolean;
+  selectedCourse: Course;
 
   constructor(private http: HttpClient) {
   }
@@ -31,6 +32,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.loading = false;
       this.courses = response.data.courses;
     });
+  }
+
+  selectCourse(course: Course){
+    this.selectedCourse = course;
   }
 
 }
