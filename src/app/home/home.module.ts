@@ -5,6 +5,8 @@ import {CoursesComponent} from './components/courses/courses.component';
 import {CourseDetailComponent} from './components/course-detail/course-detail.component';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
+import {StoreModule} from '@ngrx/store'
+import {homeReducer} from './+state/home.state';
 
 export const routes: Routes = [
   {
@@ -17,7 +19,8 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature("home",homeReducer,{initialState: {selectedCourse: null}})
   ],
   declarations: [CoursesAppComponent,CoursesComponent,CourseDetailComponent]
 })

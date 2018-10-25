@@ -5,6 +5,7 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {NinjasAppComponent} from './components/ninjas-app/ninjas-app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import {StoreModule} from '@ngrx/store'
 
 export const routes: Routes = [
   {
@@ -39,6 +40,7 @@ export const routes: Routes = [
     CommonModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    StoreModule.forRoot({})
   ],
   declarations: [
     HeaderComponent,
