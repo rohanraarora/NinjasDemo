@@ -6,6 +6,8 @@ import {NinjasAppComponent} from './components/ninjas-app/ninjas-app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {StoreModule} from '@ngrx/store'
+import {StoreDevtoolsModule} from '@ngrx/store-devtools'
+import {environment} from '../../environments/environment';
 
 export const routes: Routes = [
   {
@@ -40,7 +42,8 @@ export const routes: Routes = [
     CommonModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   declarations: [
     HeaderComponent,
