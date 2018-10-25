@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Course} from '../../../../models/course';
 import {CoursesService} from '../../../core/services/courses.service';
+import {HomeService} from '../../services/home.service';
 
 @Component({
   selector: 'app-courses-app',
@@ -11,7 +12,6 @@ export class CoursesAppComponent implements OnInit, OnDestroy {
 
   courses: Course[];
   loading: boolean;
-  selectedCourse: Course;
 
   constructor(private api: CoursesService) {
   }
@@ -28,7 +28,7 @@ export class CoursesAppComponent implements OnInit, OnDestroy {
   }
 
   selectCourse(course: Course) {
-    this.selectedCourse = course;
+    // this.selectedCourse = course;
   }
 
 }

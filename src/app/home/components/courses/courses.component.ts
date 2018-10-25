@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from '../../../../models/course';
+import {HomeService} from '../../services/home.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,15 +10,16 @@ import {Course} from '../../../../models/course';
 export class CoursesComponent implements OnInit {
 
   @Input() courses: Course[];
-  @Output() courseSelect = new EventEmitter();
+  // @Output() courseSelect = new EventEmitter();
 
-  constructor() { }
+  constructor(private home:HomeService) { }
 
   ngOnInit() {
   }
 
   selectCourse(course: Course){
-    this.courseSelect.emit(course);
+    // this.courseSelect.emit(course);
+    this.home.selectCourse(course);
   }
 
 }

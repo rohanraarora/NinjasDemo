@@ -2,10 +2,10 @@
 <ng-template #notLoading>
   <div id="courses-app-container">
     <div class="content card">
-      <app-courses [courses]="courses" (courseSelect)="selectCourse($event)"></app-courses>
+      <app-courses [courses]="courses"></app-courses>
     </div>
     <div class="content card">
-      <app-course-detail [course]="selectedCourse"></app-course-detail>
+      <app-course-detail></app-course-detail>
     </div>
   </div>
 </ng-template>
